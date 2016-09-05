@@ -1,0 +1,22 @@
+#!/bin/bash
+ 
+echo -e " _ _
+█    ██  ██▓███    █████▒██▀███  ▓█████   ██████  ██░ ██ 
+ ██  ▓██▒▓██░  ██▒▓██   ▒▓██ ▒ ██▒▓█   ▀ ▒██    ▒ ▓██░ ██▒
+▓██  ▒██░▓██░ ██▓▒▒████ ░▓██ ░▄█ ▒▒███   ░ ▓██▄   ▒██▀▀██░
+▓▓█  ░██░▒██▄█▓▒ ▒░▓█▒  ░▒██▀▀█▄  ▒▓█  ▄   ▒   ██▒░▓█ ░██ 
+▒▒█████▓ ▒██▒ ░  ░░▒█░   ░██▓ ▒██▒░▒████▒▒██████▒▒░▓█▒░██▓
+░▒▓▒ ▒ ▒ ▒▓▒░ ░  ░ ▒ ░   ░ ▒▓ ░▒▓░░░ ▒░ ░▒ ▒▓▒ ▒ ░ ▒ ░░▒░▒
+░░▒░ ░ ░ ░▒ ░      ░       ░▒ ░ ▒░ ░ ░  ░░ ░▒  ░ ░ ▒ ░▒░ ░
+ ░░░ ░ ░ ░░        ░ ░     ░░   ░    ░   ░  ░  ░   ░  ░░ ░
+   ░                        ░        ░  ░      ░   ░  ░  ░
+     - Systems
++++++++++++++++++: System Data :+++++++++++++++++++
++ Hostname = `hostname`
++ Address = `ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}'`
++ Kernel = `uname -r`
++ Uptime = `uptime | sed 's/.*up ([^,]*), .*/1/'`
++ CPU = `nproc` x `cat /proc/cpuinfo | grep -Po 'model name\s+: \K.*' | uniq`
++ Memory = `cat /proc/meminfo | grep MemTotal | awk {'print $2'}` kB
++ Username = `whoami`
+"

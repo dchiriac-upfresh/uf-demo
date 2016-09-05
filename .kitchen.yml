@@ -1,0 +1,43 @@
+---
+driver:
+  name: vagrant
+  customize:
+    memory: 1024
+
+provisioner:
+  name: chef_zero
+  require_chef_omnibus: 12.2.0
+
+platforms:
+  - name: c72uaf
+    driver_config:
+      box: c72uaf
+      box_url: http://192.168.88.203/vagrant/boxes/bento_centos-7.2.box
+
+suites:
+  - name: default
+    data_bags_path: test/integration/data_bags
+    run_list:
+      - recipe[upandfresh-apps::default]
+      - recipe[upandfresh-apps::profile_hardening]
+      - recipe[upandfresh-apps::profile_yum_repos]
+      - recipe[upandfresh-apps::profile_collectd]
+
+
+  - name: magento
+    data_bags_path: test/integration/data_bags
+    run_list:
+      - recipe[upandfresh-apps::default]
+      - recipe[upandfresh-apps::profile_hardening]
+      - recipe[upandfresh-apps::profile_yum_repos]
+
+  - name: database
+    data_bags_path: test/integration/data_bags
+    run_list:
+      - recipe[upandfresh-apps::default]
+      - recipe[upandfresh-apps::profile_hardening]
+      - recipe[upandfresh-apps::profile_yum_repos]
+      - recipe[upandfresh-apps::profile_mariadb]
+      - recipe[upandfresh-apps::profile_memcached]
+      - recipe[upandfresh-apps::profile_redisio]
+      - recipe[upandfresh-apps::profile_php]

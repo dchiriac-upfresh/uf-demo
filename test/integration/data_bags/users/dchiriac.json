@@ -1,0 +1,10 @@
+{
+  "id": "dchiriac",
+  "password":"$6$QkEi78dA$Qju9Kybqr3.gRKJMS8rEP2oYikwsDX1GtS7fDvCIzBlyemhfFqZaLIgcKRpNpxhJNT9Sufu2KhoTdf4lw.ixg.",
+  "ssh_keys": [
+  ],
+  "groups": [ "operations_live", "operations_stag" ],
+  "uid": 5003,
+  "shell": "\/bin\/bash",
+  "comment": "Dragos Chiriac"
+}
